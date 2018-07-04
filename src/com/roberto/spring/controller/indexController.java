@@ -8,9 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class indexController {
 	
 
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/home")
     public String index(Model model) {
+		System.out.println("IN INDEX METHOD");
         return "index";
+    } 
+	
+	@RequestMapping(value = "/profile")
+    public String profile(Model model) {
+		System.out.println("In PROFILE MEHTOD");
+        return "profile";
     } 
 
 }
