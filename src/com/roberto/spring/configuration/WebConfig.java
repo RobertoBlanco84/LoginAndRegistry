@@ -27,7 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
 	 */
 	ApplicationContext applicationContext;
 
-	//Setting them index page
+	//Setting the index page
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("index");
@@ -38,7 +38,8 @@ public class WebConfig implements WebMvcConfigurer {
 	public SpringResourceTemplateResolver springTemplateResolver() {
 		SpringResourceTemplateResolver springTemplateResolver = new SpringResourceTemplateResolver();
 		springTemplateResolver.setApplicationContext(this.applicationContext);
-		springTemplateResolver.setPrefix("/WEB-INF/pages/");
+		//springTemplateResolver.setPrefix("/WEB-INF/pages/");
+		springTemplateResolver.setPrefix("/WEB-INF/");
 		springTemplateResolver.setSuffix(".html");
 		return springTemplateResolver;
 	}
