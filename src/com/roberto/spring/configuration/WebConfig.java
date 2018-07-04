@@ -31,15 +31,15 @@ public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("index");
-	}
+	} 
 
 	//1. Creating SpringResourceTemplateResolver
 	@Bean
 	public SpringResourceTemplateResolver springTemplateResolver() {
 		SpringResourceTemplateResolver springTemplateResolver = new SpringResourceTemplateResolver();
 		springTemplateResolver.setApplicationContext(this.applicationContext);
-		//springTemplateResolver.setPrefix("/WEB-INF/pages/");
 		springTemplateResolver.setPrefix("/WEB-INF/");
+		//springTemplateResolver.setPrefix("/WEB-INF/pages/");
 		springTemplateResolver.setSuffix(".html");
 		return springTemplateResolver;
 	}
