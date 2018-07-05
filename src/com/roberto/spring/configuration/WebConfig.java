@@ -17,6 +17,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
 @EnableWebMvc
+//@ComponentScan({"com.roberto.spring.controller", "com.roberto.spring.bean"})
 @ComponentScan("com.roberto.spring.controller")
 public class WebConfig implements WebMvcConfigurer {
 
