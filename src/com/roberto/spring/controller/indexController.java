@@ -14,20 +14,20 @@ import com.roberto.spring.bean.User;
 
 @Controller
 public class indexController {
-	
+
 
 	@RequestMapping(value = "/home")
-    public String home(Model model) {
+	public String home(Model model) {
 		System.out.println("IN INDEX METHOD");
-        return "index";
-    } 
-	
+		return "index";
+	} 
+
 	/*@RequestMapping(value = "/login")
     public String login(Model model) {
 		System.out.println("In LOGIN MEHTOD");
         return "pages/login";
     } */
-	
+
 	/*@GetMapping("/login")
     public String loginForm(Model model) {
         model.addAttribute("userName", new User());
@@ -42,40 +42,53 @@ public class indexController {
         return "pages/profile";
     } */
 
-	
+
 	/*@RequestMapping(value = "/profile")
     public String profile(Model model) {
 		System.out.println("In profile MEHTOD");
         return "pages/profile";
     }  */
-	
-	
-	@ModelAttribute(value = "userForm")
+
+
+	/*@ModelAttribute(value = "userForm")
 	public User newEntity(){
 	    return new User();
+	} */
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String submit(
+			@ModelAttribute("userForm") User user,
+			BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			return "error";
+		}
+		model.addAttribute("userName", user.getUserName());
+		model.addAttribute("password", user.getPassword());
+
+		// employeeMap.put(employee.getId(), employee);
+		System.out.println("IN login method!!!");
+
+		return "pages/login";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String submit(
-      @ModelAttribute("userForm") User user,
-      BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            return "error";
-        }
-        model.addAttribute("userName", user.getUserName());
-        model.addAttribute("password", user.getPassword());
- 
-       // employeeMap.put(employee.getId(), employee);
-        System.out.println("IN login method!!!");
- 
-        return "pages/login";
-    }
-	
 	@RequestMapping(value = "/profile")
-    public String profile(Model model) {
+	public String profile(@ModelAttribute("userForm") User user,
+			BindingResult result, ModelMap model) {
+		model.addAttribute("userName", user.getUserName());
 		System.out.println("In profile MEHTOD");
-        return "pages/profile";
-    }  
- 
+		return "pages/profile";
+	} 
+
+	/*@RequestMapping(value = "/profile")
+	public String profile(Model model) {
+		System.out.println("In profile MEHTOD");
+		return "pages/profile";
+	} */
+
+	/*@PostMapping("/profile")
+	public String greetingSubmit(@ModelAttribute User userName) {
+		System.out.println("IN PROFILE");
+		return "pages/profile";
+	} */
 
 }
