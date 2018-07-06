@@ -64,7 +64,7 @@ public class indexController {
 		}
 		model.addAttribute("userName", user.getUserName());
 		model.addAttribute("password", user.getPassword());
-
+		
 		// employeeMap.put(employee.getId(), employee);
 		System.out.println("IN login method!!!");
 
@@ -74,6 +74,10 @@ public class indexController {
 	@RequestMapping(value = "/profile")
 	public String profile(@ModelAttribute("userForm") User user,
 			BindingResult result, ModelMap model) {
+		if (user.getUserName().equals("") || user.getPassword().equals("")) {
+			return "pages/login";
+		}
+
 		model.addAttribute("userName", user.getUserName());
 		System.out.println("In profile MEHTOD");
 		return "pages/profile";
