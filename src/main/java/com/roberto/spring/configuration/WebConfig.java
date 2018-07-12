@@ -6,6 +6,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -71,16 +72,14 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/resources/img/**").addResourceLocations("/resources/img/");
 	}
 
-	//5. For validation of empty fields I guess
-	@Bean
-	public MessageSource messageSource() {
-		ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-		//source.setBasename("/WEB-INF/test/");
-		source.setBasename("classpath:test/messages");
-		source.setDefaultEncoding("UTF-8");
-		source.setUseCodeAsDefaultMessage(true);
-		return source;
-	}
-
+	//5. For reading propertie files in locale folder
+	   @Bean("messageSource")
+	   public MessageSource messageSource() {
+	      ReloadableResourceBundleMessageSource messageSource=new ReloadableResourceBundleMessageSource();
+	      messageSource.setBasename("classpath:locale/messages");
+	      messageSource.setDefaultEncoding("UTF-8");
+	      messageSource.setUseCodeAsDefaultMessage(true);
+	      return messageSource;
+	   } 
 
 }
