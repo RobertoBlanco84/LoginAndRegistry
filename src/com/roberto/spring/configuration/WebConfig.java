@@ -2,9 +2,11 @@ package com.roberto.spring.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -18,7 +20,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @Configuration
 @EnableWebMvc
 //@ComponentScan({"com.roberto.spring.controller", "com.roberto.spring.bean"})
-@ComponentScan("com.roberto.spring.controller")
+@ComponentScan({"com.roberto.spring.controller", "com.roberto.spring.model.validator"})
 public class WebConfig implements WebMvcConfigurer {
 
 	@Autowired
@@ -67,6 +69,17 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/resources/css/**").addResourceLocations("/resources/css/");
 		registry.addResourceHandler("/resources/js/**").addResourceLocations("/resources/js/");
 		registry.addResourceHandler("/resources/img/**").addResourceLocations("/resources/img/");
+	}
+
+	//5. For validation of empty fields I guess
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+		//source.setBasename("/WEB-INF/test/");
+		source.setBasename("classpath:test/messages");
+		source.setDefaultEncoding("UTF-8");
+		source.setUseCodeAsDefaultMessage(true);
+		return source;
 	}
 
 

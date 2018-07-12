@@ -3,20 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Login to your private profile</title>
- <link rel="stylesheet" type="text/css" media="all"  
-      href="../../resources/css/css.css" th:href="@{/resources/css/css.css}" /> 
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../resources/css/css.css" th:href="@{/resources/css/css.css}" />
 </head>
 <body>
-<h1>LOG IN</h1>
-<!--  <form th:action="@{/profile}" th:object="${profile}" method="post">
+	<h1>LOG IN</h1>
+	<!--  <form th:action="@{/profile}" th:object="${profile}" method="post">
 	<p>User name:<input type="text" th:field="*{userName}"/></p>
 	<p>Password:<input type="text" th:field="*{password}"/></p>
 	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form> -->
-<form th:action="@{/profile}" th:object="${userForm}" method="POST">
+	<!--  <form th:action="@{/profile}" th:object="${userForm}" method="POST">
 	<p>User name:<input type="text" th:field="*{userName}" /></p>
+	<p th:if="${#fields.hasErrors('password')}" th:errors="*{userName}">KUK</p>
 	<p>Password:<input type="text"  th:field="*{password}"></p>
+	<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">BÖG</p>
 	<p><input type="submit" value="Submit" /></p>
-</form>
+</form> -->
+
+	<form action="#" th:action="@{/profile}" th:object="${userForm}"
+		method="post">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{userName}" /></td>
+				<td th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Name
+					Error</td>
+			</tr>
+			<tr>
+				<td>Age:</td>
+				<td><input type="text" th:field="*{password}" /></td>
+				<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Age
+					Error</td>
+			</tr>
+			<tr>
+				<td><button type="submit">Submit</button></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
