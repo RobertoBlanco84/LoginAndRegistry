@@ -1,0 +1,9 @@
+com/roberto/spring/model/bean/User.class
+com/roberto/spring/configuration/WebApplicationInitializer.class
+com/roberto/spring/configuration/WebConfig.class
+com/roberto/spring/controller/IndexController.class
+com/roberto/spring/configuration/SecurityConfig.class
+com/roberto/spring/controller/ProfileController.class
+com/roberto/spring/controller/ValidatorController.class
+com/roberto/spring/controller/LoginController.class
+com/roberto/spring/model/validator/UserValidator.class
