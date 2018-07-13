@@ -11,15 +11,12 @@ import com.roberto.spring.model.bean.User;
 @Controller
 public class ProfileController {
 
-	
 	@RequestMapping(value = "/profile")
-	public String profile(@ModelAttribute("userForm") User user,
-			BindingResult result, ModelMap model) {
-		
-		model.addAttribute("userName", user.getUserName());
+	public String profile(@ModelAttribute("userForm") User user
+			/*BindingResult result, ModelMap model*/) {
+		System.out.println("IN PROFILE CONTROLLER METH"); 
+		//model.addAttribute("userName", user.getUserName());
 		return "pages/profile";
 	} 
-
-
 
 }

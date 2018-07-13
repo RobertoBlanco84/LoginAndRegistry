@@ -32,10 +32,10 @@ public class WebConfig implements WebMvcConfigurer {
 	ApplicationContext applicationContext;
 
 	//Setting the index page
-	@Override
+/*	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("index");
-	} 
+	}  */
 
 	//1. Creating SpringResourceTemplateResolver
 	@Bean

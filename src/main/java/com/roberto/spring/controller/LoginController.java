@@ -32,44 +32,27 @@ public class LoginController {
 		binder.addValidators(userValidator);
 	}
 
-	//@GetMapping("/login")
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String submit(
-			@ModelAttribute("userForm") @Validated User user,
-			BindingResult result, ModelMap model) {
+	@GetMapping("/")
+	public String submit( ModelMap model/*, User user*/) {
+		//model.addAttribute("userName", user.getUserName());
+		//model.addAttribute("password", user.getPassword()); 
+		System.out.println("In first getMapping");
+		model.addAttribute("userForm", new User());
+		return "pages/login";
+	}
+
+	
+	@PostMapping("/login")
+	public String saveUser(@ModelAttribute("userForm") @Validated User user, BindingResult result,
+			Model model) {
+		System.out.println("In first PostMapping");
 		if (result.hasErrors()) {
-			System.out.println("KUK HORA METOD");
 			return "pages/login";
 		}
 		model.addAttribute("userName", user.getUserName());
-		model.addAttribute("password", user.getPassword());
-	
-		System.out.println("IN login method!!!");
-
-		return "pages/login";
+	//	model.addAttribute("password", user.getPassword());
+		System.out.println("About to return pages/profile");
+		return "redirect:profile";
 	}
 	
-	/*@PostMapping("/login")
-	   public String saveUser( @Valid User user, BindingResult result) {
-		 System.out.println("SSAVE USER METHOD");
-	      if (result.hasErrors()) {
-	         return "pages/login";
-	      }
-	      System.out.println("HORA, jag börjar hata Spring MVC mer och mera");
-	      return "pages/profile";
-	   }   */
-	
-
-/*	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String error(User user) {
-		System.out.println("BEFORE CHECK IN ERROR METHOD");
-		if (user.getUserName().equals("") || user.getPassword().equals("")) {
-			return "pages/login";
-		}
-
-		System.out.println("IN Error method!!!");
-
-		return "pages/login";
-	} */
-
 }
