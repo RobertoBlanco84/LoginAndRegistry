@@ -6,4 +6,5 @@
 /Users/RobertoBlanco/eclipse-workspace-Spring/LoginAndRegistry/src/main/java/com/roberto/spring/controller/IndexController.java
 /Users/RobertoBlanco/eclipse-workspace-Spring/LoginAndRegistry/src/main/java/com/roberto/spring/model/validator/UserValidator.java
 /Users/RobertoBlanco/eclipse-workspace-Spring/LoginAndRegistry/src/main/java/com/roberto/spring/controller/LoginController.java
+/Users/RobertoBlanco/eclipse-workspace-Spring/LoginAndRegistry/src/main/java/com/roberto/spring/configuration/SecurityWebApplicationInitializer.java
 /Users/RobertoBlanco/eclipse-workspace-Spring/LoginAndRegistry/src/main/java/com/roberto/spring/configuration/WebConfig.java
