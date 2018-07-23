@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.roberto.spring.model.bean.User;
+import com.roberto.spring.model.bean.Userz;
 import com.roberto.spring.model.validator.UserValidator;
 
 @Controller

@@ -3,7 +3,7 @@ package com.roberto.spring.model.bean;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class User {
+public class Userz {
 
 	@NotNull
 	@Size(min=3, max=20)
@@ -12,7 +12,7 @@ public class User {
 	@NotNull
 	private String password;
 	
-	public User() {
+	public Userz() {
 		
 	}
 

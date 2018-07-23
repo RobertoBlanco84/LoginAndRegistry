@@ -2,20 +2,17 @@ package com.roberto.spring.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.roberto.spring.model.bean.Userz;
+
 
 
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 	
-	/*@Override
-    protected Class<?>[] getRootConfigClasses()
-    {
-        return null;
-    } */
-	
+
 	@Override
     protected Class<?>[] getRootConfigClasses()
     {
-        return new Class[] {SecurityConfig.class};
+        return new Class[] {Userz.class,SecurityConfig.class};
     } 
 
     @Override

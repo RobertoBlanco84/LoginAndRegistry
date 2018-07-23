@@ -31,11 +31,11 @@
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="text" th:field="*{password}" /></td>
+				<td><input type="password" th:field="*{password}" /></td>
 				<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">HELLO</td>
 			</tr>
 			<tr>
-				<td><button type="submit">Submit</button></td>
+				 <td><input name="submit" type="submit" value="submit" /></td>
 			</tr>
 		</table>
 	</form>

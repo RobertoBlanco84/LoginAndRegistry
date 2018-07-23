@@ -5,14 +5,14 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.roberto.spring.model.bean.User;
+import com.roberto.spring.model.bean.Userz;
 
 @Component
 public class UserValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return User.class.equals(clazz);
+		return Userz.class.equals(clazz);
 	}
 
 	@Override
