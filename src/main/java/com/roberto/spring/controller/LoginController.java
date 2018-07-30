@@ -49,11 +49,13 @@ public class LoginController {
 	public String saveUser(@ModelAttribute("userForm") @Validated Userz user, BindingResult result,
 			Model model) {
 		System.out.println("In first PostMapping");
+		//!userz.getPassword().equals("abc")
+		
+		model.addAttribute("userName", user.getUserName());
+		model.addAttribute("password", user.getPassword());
 		if (result.hasErrors()) {
 			return "pages/login";
 		}
-		model.addAttribute("userName", user.getUserName());
-		model.addAttribute("password", user.getPassword());
 		System.out.println("About to return pages/profile");
 		return "redirect:profile";
 	}

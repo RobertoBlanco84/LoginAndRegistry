@@ -13,6 +13,9 @@ public class ProfileController {
 	public String profile(@ModelAttribute("userForm") Userz user
 			/*BindingResult result, ModelMap model*/) {
 		System.out.println("IN PROFILE CONTROLLER METH"); 
+		if(!user.getPassword().equals("abc")) {
+			return "redirect:/";
+		} 
 		//model.addAttribute("userName", user.getUserName());
 		return "pages/profile";
 	} 
